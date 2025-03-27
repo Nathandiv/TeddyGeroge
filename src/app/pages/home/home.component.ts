@@ -5,22 +5,40 @@ import { CartComponent } from '../../components/cart/cart.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, CartComponent, NavbarComponent],
+  imports: [CommonModule, ProductCardComponent, CartComponent, NavbarComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   @ViewChild(CartComponent) cartComponent!: CartComponent;
   products = this.productService.getProducts();
+  currentPage = 1;
+  itemsPerPage = 9;
 
   constructor(
     private productService: ProductService,
     private cartService: CartService
   ) {}
+
+  get paginatedProducts() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.products.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.products.length / this.itemsPerPage);
+  }
+
+  setPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage = page;
+    }
+  }
 
   openCart(): void {
     if (this.cartComponent) {

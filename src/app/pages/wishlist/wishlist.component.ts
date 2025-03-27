@@ -15,15 +15,10 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
- @ViewChild(CartComponent) cartComponent!: CartComponent;
-  products = this.productService.getProducts();
-
-  openCart(): void {
-    if (this.cartComponent) {
-      this.cartComponent.open();
-    }
-  }
+  @ViewChild(CartComponent) cartComponent!: CartComponent;
   wishlistProducts: Product[] = [];
+  currentPage = 1;
+  itemsPerPage = 9;
 
   constructor(
     private wishlistService: WishlistService,
@@ -39,11 +34,32 @@ export class WishlistComponent implements OnInit {
     });
   }
 
+  get paginatedWishlist(): Product[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.wishlistProducts.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.wishlistProducts.length / this.itemsPerPage);
+  }
+
+  setPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages()) {
+      this.currentPage = page;
+    }
+  }
+
   removeFromWishlist(productId: number): void {
     this.wishlistService.removeFromWishlist(productId);
   }
 
   addToCart(productId: number): void {
     this.cartService.addToCart(productId);
+  }
+
+  openCart(): void {
+    if (this.cartComponent) {
+      this.cartComponent.open();
+    }
   }
 }

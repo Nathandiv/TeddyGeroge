@@ -6,13 +6,48 @@
       <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Collection</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <app-product-card
-          *ngFor="let product of products"
+          *ngFor="let product of paginatedProducts"
           [product]="product"
           class="transform transition-all duration-300 hover:scale-[1.02]"
         ></app-product-card>
       </div>
     </section>
+  
+    <!-- Pagination Controls -->
+    <nav class="flex justify-center mt-8">
+      <ul class="inline-flex items-center -space-x-px">
+        <li>
+          <button
+            (click)="setPage(currentPage - 1)"
+            [disabled]="currentPage === 1"
+            class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700"
+          >
+            Previous
+          </button>
+        </li>
+        <li *ngFor="let page of [].constructor(totalPages()); let i = index">
+          <button
+            (click)="setPage(i + 1)"
+            [class.bg-blue-500]="currentPage === i + 1"
+            [class.text-white]="currentPage === i + 1"
+            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+          >
+            {{ i + 1 }}
+          </button>
+        </li>
+        <li>
+          <button
+            (click)="setPage(currentPage + 1)"
+            [disabled]="currentPage === totalPages()"
+            class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700"
+          >
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
   </main>
+  
 
   <app-cart></app-cart>
 </div>
