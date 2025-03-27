@@ -8,13 +8,13 @@ import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-shop',
   standalone: true,
   imports: [CommonModule, ProductCardComponent, CartComponent, NavbarComponent,RouterLink],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.css']
 })
-export class HomeComponent {
+export class ShopComponent {
   @ViewChild(CartComponent) cartComponent!: CartComponent;
   products = this.productService.getProducts();
   currentPage = 1;
