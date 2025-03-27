@@ -1,0 +1,36 @@
+<div class="product-card">
+  <img [src]="product.imageUrl" 
+       [alt]="product.name" 
+       class="product-image">
+  
+  <div class="product-content">
+    <h3 class="product-title">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    
+    <div class="price-container">
+      <div class="price-info">
+        <span class="original-price" [class.on-sale]="product.onSale">
+          R{{ product.price }}
+        </span>
+        <span *ngIf="product.onSale" class="sale-price">
+          R{{ product.salePrice }}
+        </span>
+      </div>
+      
+      <div class="availability">
+        <span *ngIf="!product.available" class="out-of-stock">
+          Out of Stock
+        </span>
+        <button *ngIf="product.available"
+                (click)="addToCart()"
+                class="add-to-cart">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+    
+    <div *ngIf="product.onSale" class="sale-badge">
+      On Sale
+    </div>
+  </div>
+</div>

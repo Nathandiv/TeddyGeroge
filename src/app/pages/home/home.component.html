@@ -1,0 +1,18 @@
+<div class="min-h-screen bg-gray-50">
+  <app-navbar (openCartEvent)="openCart()"></app-navbar>
+  
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Collection</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <app-product-card
+          *ngFor="let product of products"
+          [product]="product"
+          class="transform transition-all duration-300 hover:scale-[1.02]"
+        ></app-product-card>
+      </div>
+    </section>
+  </main>
+
+  <app-cart></app-cart>
+</div>

@@ -1,0 +1,15 @@
+:host {
+  @apply block;
+}
+
+nav {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+button {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.cart-count {
+  @apply animate-pulse;
+}

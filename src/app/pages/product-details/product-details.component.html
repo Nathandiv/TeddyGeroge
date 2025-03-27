@@ -1,0 +1,106 @@
+<div class="min-h-screen bg-gray-50">
+  <app-navbar (openCartEvent)="openCart()"></app-navbar>
+  
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Image Gallery -->
+      <div class="space-y-4">
+        <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-100">
+          <img 
+  [src]="product?.images?.[selectedImageIndex] || 'assets/default-image.jpg'" 
+  [alt]="product?.name || 'Product Image'"
+  class="object-cover w-full h-full">
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+          <button 
+            *ngFor="let image of product?.images; let i = index"
+            (click)="selectImage(i)"
+            class="aspect-w-1 aspect-h-1 rounded-md overflow-hidden"
+            [class.ring-2]="selectedImageIndex === i"
+            [class.ring-blue-500]="selectedImageIndex === i">
+            <img 
+              [src]="image" 
+              [alt]="product?.name"
+              class="object-cover w-full h-full">
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="space-y-6">
+        <div class="space-y-2">
+          <h1 class="text-3xl font-bold text-gray-900">{{ product?.name }}</h1>
+          
+          <div class="flex items-center space-x-2">
+            <div class="flex">
+              <svg *ngFor="let star of getRatingStars(product?.rating || 0)" 
+                   [class.text-yellow-400]="star === 1"
+                   [class.text-gray-300]="star === 0"
+                   class="h-5 w-5" 
+                   fill="currentColor"
+                   viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            </div>
+            <span class="text-sm text-gray-600">({{ product?.reviewCount }} reviews)</span>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <span class="text-2xl font-bold text-gray-900" [class.line-through]="product?.onSale">
+            R{{ product?.price }}
+          </span>
+          <span *ngIf="product?.onSale" class="text-2xl font-bold text-red-600">
+            R{{ product?.salePrice }}
+          </span>
+        </div>
+
+        <p class="text-gray-600">{{ product?.details }}</p>
+
+        <div class="border-t border-gray-200 pt-4">
+          <h3 class="text-lg font-medium text-gray-900">Specifications</h3>
+          <dl class="mt-4 space-y-4">
+            <div class="grid grid-cols-3 gap-4">
+              <dt class="text-sm font-medium text-gray-500">Dimensions</dt>
+              <dd class="text-sm text-gray-900 col-span-2">{{ product?.specifications?.dimensions || 'N/A' }}</dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <dt class="text-sm font-medium text-gray-500">Material</dt>
+              <dd class="text-sm text-gray-900 col-span-2">{{ product?.specifications?.material || 'N/A' }}</dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <dt class="text-sm font-medium text-gray-500">Color</dt>
+              <dd class="text-sm text-gray-900 col-span-2">{{ product?.specifications?.color || 'N/A' }}</dd>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <dt class="text-sm font-medium text-gray-500">Weight</dt>
+              <dd class="text-sm text-gray-900 col-span-2">{{ product?.specifications?.weight || 'N/A' }}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="flex space-x-4">
+          <button 
+            *ngIf="product?.available"
+            (click)="addToCart()"
+            class="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+            Add to Cart
+          </button>
+          <button 
+            (click)="toggleWishlist()"
+            class="p-3 rounded-lg border"
+            [class.text-red-600]="isInWishlist"
+            [class.border-red-600]="isInWishlist"
+            [class.text-gray-400]="!isInWishlist"
+            [class.border-gray-300]="!isInWishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-cart></app-cart>
+</div>

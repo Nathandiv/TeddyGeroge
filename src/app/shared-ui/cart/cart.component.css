@@ -1,0 +1,75 @@
+.cart-panel {
+  @apply fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-lg transform transition-transform z-50;
+}
+
+.cart-panel.open {
+  @apply translate-x-0;
+}
+
+.cart-panel.closed {
+  @apply translate-x-full;
+}
+
+.cart-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.cart-title {
+  @apply text-xl font-bold;
+}
+
+.close-button {
+  @apply text-gray-500 hover:text-gray-700 text-2xl;
+}
+
+.empty-cart {
+  @apply text-center py-8 text-gray-500;
+}
+
+.cart-item {
+  @apply flex items-center gap-4 mb-4 border-b pb-4;
+}
+
+.item-image {
+  @apply w-20 h-20 object-cover rounded;
+}
+
+.item-details {
+  @apply flex-1;
+}
+
+.item-name {
+  @apply font-semibold;
+}
+
+.quantity-controls {
+  @apply flex items-center gap-2 mt-2;
+}
+
+.quantity-button {
+  @apply px-2 py-1 border rounded hover:bg-gray-100;
+}
+
+.item-price {
+  @apply text-right;
+}
+
+.price-amount {
+  @apply font-semibold;
+}
+
+.remove-button {
+  @apply text-red-500 text-sm hover:text-red-700;
+}
+
+.cart-footer {
+  @apply mt-4;
+}
+
+.cart-total {
+  @apply flex justify-between font-bold text-lg mb-4;
+}
+
+.checkout-button {
+  @apply w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors;
+}

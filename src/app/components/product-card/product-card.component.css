@@ -1,0 +1,71 @@
+.product-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden cursor-pointer;
+  height: 100%;
+}
+
+.product-image {
+  @apply w-full h-64 object-cover transition-transform duration-300;
+  aspect-ratio: 4/3;
+}
+
+.product-content {
+  @apply p-6;
+}
+
+.product-title {
+  @apply text-xl font-semibold text-gray-900 mb-2 line-clamp-1;
+}
+
+.product-description {
+  @apply text-gray-600 mt-2 text-sm line-clamp-2;
+}
+
+.price-container {
+  @apply mt-4 flex items-center justify-between;
+}
+
+.price-info {
+  @apply flex items-center gap-2;
+}
+
+.original-price {
+  @apply text-lg font-bold;
+}
+
+.original-price.on-sale {
+  @apply line-through text-gray-400;
+}
+
+.sale-price {
+  @apply text-lg font-bold text-red-600;
+}
+
+.sale-badge {
+  @apply absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.availability {
+  @apply flex items-center;
+}
+
+.out-of-stock {
+  @apply text-red-500 font-medium;
+}
+
+.add-to-cart {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors transform hover:scale-105 active:scale-95;
+}
+
+@media (max-width: 640px) {
+  .product-image {
+    height: 200px;
+  }
+  
+  .product-content {
+    @apply p-4;
+  }
+  
+  .product-title {
+    @apply text-lg;
+  }
+}
