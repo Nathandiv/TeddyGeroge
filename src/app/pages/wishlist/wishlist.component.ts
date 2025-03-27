@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WishlistService } from '../../services/wishlist.service';
 import { ProductService } from '../../services/product.service';
@@ -15,9 +15,14 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  openCart() {
-    console.log('Cart opened');
-}
+ @ViewChild(CartComponent) cartComponent!: CartComponent;
+  products = this.productService.getProducts();
+
+  openCart(): void {
+    if (this.cartComponent) {
+      this.cartComponent.open();
+    }
+  }
   wishlistProducts: Product[] = [];
 
   constructor(
