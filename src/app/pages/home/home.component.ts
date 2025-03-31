@@ -44,14 +44,14 @@ export class HomeComponent implements OnInit {
       title: 'Discover Inspired Living',
       subtitle: 'Explore Elevated Living',
       description: 'Discover elevated living at its finest with TP2 Furniture Shop. Our curated collection combines timeless elegance with modern flair, offering furnishings that redefine style and comfort.',
-      image: 'https://i5-images.massmart.co.za/asr/2c5eaf3c-efde-4c88-9269-cc7ee876dd90.c5bb685b0ab06277c6835a567bdccc86.jpeg?odnHeight=255&odnWidth=285&odnBg=FFFFFF',
+      image: 'https://media.istockphoto.com/id/1421675815/photo/home-interior-mock-up-with-brown-leather-sofa-table-and-decor-in-living-room.webp?b=1&s=170667a&w=0&k=20&c=jacLykW0Wy4LWyA7uOchevpXNqRSwHm2XnMyCLulUlA=',
       alt: 'Modern living room setup'
     },
     {
       title: 'Premium Comfort',
       subtitle: 'Experience Luxury',
       description: 'Indulge in the perfect blend of comfort and style with our premium furniture collection. Each piece is carefully selected to bring both functionality and elegance to your living space.',
-      image: 'https://i5-images.massmart.co.za/asr/e7e16169-827b-419d-a125-2d04aa4ead92.4fcba9c0f62fdf5d7327526703256c1f.jpeg?odnHeight=255&odnWidth=285&odnBg=FFFFFF',
+      image: 'https://plus.unsplash.com/premium_photo-1672136336540-2dd39fd4d1e2?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Luxury furniture showcase'
     }
   ];
