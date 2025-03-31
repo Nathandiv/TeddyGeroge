@@ -5,7 +5,54 @@
         <a href="/" class="text-2xl font-bold text-gray-900">TP2 Furniture</a>
       </div>
       
+
+      <div
+      class="hidden md:flex absolute inset-x-0 top-1/2 transform -translate-y-1/2 justify-center"
+      style="font-size: 23px"
+    >
+      <div class="flex space-x-4">
+        <a
+          href="#"
+          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+          >Home</a
+        >
+        <a
+          href="#"
+          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+          >Shop</a
+        >
+        <a
+          href="#"
+          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+          >About</a
+        >
+        <a
+          href="#"
+          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+         <!-- Mobile Menu Button -->
+         <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button" (click)="toggleMenu()">
+            <svg
+              class="w-6 h-6 text-gray-500 hover:text-green-500"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
       <div class="flex items-center gap-6">
+        
         <a href="wishlist" 
            class="text-gray-600 hover:text-gray-900 flex items-center gap-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -23,5 +70,31 @@
         </button>
       </div>
     </div>
+
+    <!-- Mobile Menu -->
+    <div [class.hidden]="!isMenuOpen" class="md:hidden">
+      <a
+        href="#"
+        class="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white transition duration-300"
+        >Home</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white transition duration-300"
+        >Shop</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white transition duration-300"
+        >About</a
+      >
+      <a
+        href="#"
+        class="block py-2 px-4 text-sm hover:bg-green-500 hover:text-white transition duration-300"
+        >Contact</a
+      >
+    </div>
+
+
   </nav>
 </header>
