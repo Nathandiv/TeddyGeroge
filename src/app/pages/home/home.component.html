@@ -105,8 +105,47 @@
     <p class="text-gray-600 text-center mb-8">
       Explore our handpicked selection of premium furniture pieces
     </p>
-    
-    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="product-card" *ngFor="let product of filteredProducts">
+            <img [src]="product.imageUrl" 
+                 [alt]="product.name" 
+                 class="product-image">
+            
+            <div class="product-content">
+              <h3 class="product-title">{{ product.name }}</h3>
+              <p class="product-description">{{ product.description }}</p>
+              
+              <div class="price-container">
+                <div class="price-info">
+                  <span class="original-price" [class.on-sale]="product.onSale">
+                    R{{ product.price }}
+                  </span>
+                  <span *ngIf="product.onSale" class="sale-price">
+                    R{{ product.salePrice }}
+                  </span>
+                </div>
+                
+                <div class="availability">
+                  <span *ngIf="!product.available" class="out-of-stock">
+                    Out of Stock
+                  </span>
+                  <button *ngIf="product.available"
+                          (click)="addToCart(product)"
+                          class="add-to-cart">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+              
+              <div *ngIf="product.onSale" class="sale-badge">
+                On Sale
+              </div>
+            </div>
+          </div>
+
+    </div>
+   
       
 
     

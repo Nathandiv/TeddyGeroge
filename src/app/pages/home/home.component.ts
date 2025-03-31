@@ -1,14 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../services/cart.service';
-import { Observable } from 'rxjs';
-import { CartItem } from '../../models/cart-item.model';
-import { Product } from '../../models/product.model';
-import { CartComponent } from '../../components/cart/cart.component';
 import { ProductService } from '../../services/product.service';
-
+import { CartComponent } from '../../components/cart/cart.component';
+import { Product } from '../../models/product.model';
 
 interface CarouselSlide {
   title: string;
@@ -26,19 +22,20 @@ interface CarouselSlide {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-    @ViewChild(CartComponent) cartComponent!: CartComponent;
-    products = this.productService.getProducts();
-    currentPage = 1;
-    itemsPerPage = 9;
   
-    constructor(
-      private productService: ProductService,
-      private cartService: CartService
-    ) {}
+  @ViewChild(CartComponent) cartComponent!: CartComponent;
 
+  products: Product[] = []; // ✅ Declared only once
+  filteredProducts: Product[] = [];
+  currentPage = 1;
+  itemsPerPage = 9;
   currentSlide = 0;
-  
+
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
+
   carouselSlides: CarouselSlide[] = [
     {
       title: 'Discover Inspired Living',
@@ -56,14 +53,18 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  
-
-
-
   ngOnInit(): void {
     setInterval(() => {
       this.nextSlide();
     }, 5000);
+  
+    // ✅ Direct assignment since `getProducts()` returns a static array
+    this.products = this.productService.getProducts();
+    this.getFilteredProducts();
+  }
+
+  getFilteredProducts(): void {
+    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 6);
   }
 
   nextSlide(): void {
@@ -90,5 +91,9 @@ export class HomeComponent implements OnInit {
     if (this.cartComponent) {
       this.cartComponent.open();
     }
+  }
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product.id);
   }
 }
