@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -6,17 +6,9 @@ import { CartService } from '../../services/cart.service';
 import { Observable } from 'rxjs';
 import { CartItem } from '../../models/cart-item.model';
 import { Product } from '../../models/product.model';
-interface CategoryCard {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  alt: string;
-  price: number;
-  oldPrice?: number;
-  rating: number;
-  inStock: boolean;
-}
+import { CartComponent } from '../../components/cart/cart.component';
+import { ProductService } from '../../services/product.service';
+
 
 interface CarouselSlide {
   title: string;
@@ -34,6 +26,17 @@ interface CarouselSlide {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+    @ViewChild(CartComponent) cartComponent!: CartComponent;
+    products = this.productService.getProducts();
+    currentPage = 1;
+    itemsPerPage = 9;
+  
+    constructor(
+      private productService: ProductService,
+      private cartService: CartService
+    ) {}
+
   currentSlide = 0;
   
   carouselSlides: CarouselSlide[] = [
@@ -53,42 +56,9 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  categoryCards: CategoryCard[] = [
-    {
-      id: 1,
-      image: 'https://nathandiv.github.io/TP2_Furniture_Store/assets/images/nina-couch-grey.jpg',
-      title: 'Nina Couch Grey',
-      description: 'With Ottoman, grey linen',
-      alt: 'Nina Couch Grey',
-      price: 899.99,
-      oldPrice: 1299.99,
-      rating: 4.5,
-      inStock: true
-    },
-    {
-      id: 2,
-      image: 'https://nathandiv.github.io/TP2_Furniture_Store/assets/images/nina-couch-black.jpg',
-      title: 'Nina Couch Black',
-      description: 'Black leather feel buffalo Sued, with Ottoman',
-      alt: 'Nina Couch Black',
-      price: 999.99,
-      rating: 5,
-      inStock: true
-    },
-    {
-      id: 3,
-      image: 'https://nathandiv.github.io/TP2_Furniture_Store/assets/images/nina-couch-brown.jpg',
-      title: 'Nina Couch Brown',
-      description: 'With Ottoman - Black linen',
-      alt: 'Nina Couch Brown',
-      price: 849.99,
-      oldPrice: 1199.99,
-      rating: 4.8,
-      inStock: false
-    }
-  ];
+  
 
-  constructor() {}
+
 
   ngOnInit(): void {
     setInterval(() => {
@@ -114,5 +84,11 @@ export class HomeComponent implements OnInit {
 
   getPartialStar(rating: number): number {
     return rating % 1;
+  }
+
+  openCart(): void {
+    if (this.cartComponent) {
+      this.cartComponent.open();
+    }
   }
 }
