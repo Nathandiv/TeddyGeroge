@@ -5,6 +5,7 @@ import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { CartComponent } from '../../components/cart/cart.component';
 import { Product } from '../../models/product.model';
+import { FooterComponent } from "../../shared-ui/footer/footer.component";
 
 interface CarouselSlide {
   title: string;
@@ -17,7 +18,7 @@ interface CarouselSlide {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
