@@ -6,11 +6,12 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
+import { FooterComponent } from "../../shared-ui/footer/footer.component";
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, CartComponent, NavbarComponent,RouterLink],
+  imports: [CommonModule, ProductCardComponent, CartComponent, NavbarComponent, RouterLink, FooterComponent],
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
