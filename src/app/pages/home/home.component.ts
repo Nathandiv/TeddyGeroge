@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   getFilteredProducts(): void {
-    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 6);
+    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 8);
   }
 
   nextSlide(): void {
