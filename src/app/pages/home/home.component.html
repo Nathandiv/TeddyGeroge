@@ -135,7 +135,7 @@
 </section>
 
 <!-- Categories section -->
-<section class="py-12 px-4 md:px-8 bg-gray-50" style="margin-top: -55px;">
+<section class="py-12 px-4 md:px-8 " style="margin-top: -55px;">
   <h2 class="text-2xl md:text-3xl font-bold text-center mb-2">
     Featured Products
   </h2>
@@ -172,6 +172,7 @@
               *ngIf="product.available"
               (click)="addToCart(product)"
               class="add-to-cart"
+              style="background: black;"
             >
               Add to Cart
             </button>
@@ -182,6 +183,11 @@
       </div>
     </div>
   </div>
+  <div class="flex justify-center items-center mt-4">
+    <button class="bg-black text-white hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded">
+        View More
+    </button>
+</div>
 </section>
 
 <app-footer></app-footer>
