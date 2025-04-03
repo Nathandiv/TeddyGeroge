@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     {
       title: 'Discover Inspired Living',
       subtitle: 'Explore Elevated Living',
-      description: 'Discover elevated living at its finest with TP2 Furniture Shop. Our curated collection combines timeless elegance with modern flair, offering furnishings that redefine style and comfort.',
+      description: 'Discover elevated living at its finest with Teddy george Shop. Our curated collection combines timeless elegance with modern flair, offering furnishings that redefine style and comfort.',
       image: 'https://media.istockphoto.com/id/1421675815/photo/home-interior-mock-up-with-brown-leather-sofa-table-and-decor-in-living-room.webp?b=1&s=170667a&w=0&k=20&c=jacLykW0Wy4LWyA7uOchevpXNqRSwHm2XnMyCLulUlA=',
       alt: 'Modern living room setup'
     },
