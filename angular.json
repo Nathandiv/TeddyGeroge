@@ -31,8 +31,10 @@
             "browser": "src/main.ts",
             "outputPath": "dist/demo",
             "polyfills": ["zone.js"],
-            "scripts": [],
-            "styles": ["src/global_styles.css"],
+           "styles": [
+            "node_modules/aos/dist/aos.css",  
+              "src/global_styles.css"           
+          ],
             "tsConfig": "tsconfig.app.json"
           }
         },
