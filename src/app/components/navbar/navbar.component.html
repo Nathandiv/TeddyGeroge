@@ -1,71 +1,98 @@
-<header class="bg-white shadow-sm fixed w-full top-0 z-40">
+<header
+  class="shadow-sm fixed w-full top-0 z-40"
+  style="background-color: rgb(235, 229, 221)"
+>
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center">
         <a href="/" class="text-2xl font-bold text-gray-900">Teddy george</a>
       </div>
-      
 
       <div
-      class="hidden md:flex absolute inset-x-0 top-1/2 transform -translate-y-1/2 justify-center"
-      style="font-size: 23px"
-    >
-      <div class="flex space-x-4">
-        <a
-          href="#"
-          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
-          >Home</a
-        >
-        <a
-          href="shop"
-          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
-          >Shop</a
-        >
-        <a
-          href="#"
-          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
-          >About</a
-        >
-        <a
-          href="#"
-          class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
-          >Contact</a
-        >
+        class="hidden md:flex absolute inset-x-0 top-1/2 transform -translate-y-1/2 justify-center"
+        style="font-size: 23px"
+      >
+        <div class="flex space-x-4">
+          <a
+            href="#"
+            class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+            >Home</a
+          >
+          <a
+            href="shop"
+            class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+            >Shop</a
+          >
+          <a
+            href="#"
+            class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+            >About</a
+          >
+          <a
+            href="#"
+            class="py-4 px-3 text-gray-500 hover:text-green-500 transition duration-300"
+            >Contact</a
+          >
+        </div>
       </div>
-    </div>
 
-         <!-- Mobile Menu Button -->
-         <div class="md:hidden flex items-center">
-          <button class="outline-none mobile-menu-button" (click)="toggleMenu()">
-            <svg
-              class="w-6 h-6 text-gray-500 hover:text-green-500"
-              fill="none"
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button class="outline-none mobile-menu-button" (click)="toggleMenu()">
+          <svg
+            class="w-6 h-6 text-gray-500 hover:text-green-500"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a
+          href="wishlist"
+          class="text-gray-600 hover:text-gray-900 flex items-center gap-1"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-
-      <div class="flex items-center gap-6">
-        
-        <a href="wishlist" 
-           class="text-gray-600 hover:text-gray-900 flex items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
           </svg>
           Wishlist
         </a>
         <button class="relative" (click)="openCart()">
-          <span class="absolute -top-2 -right-2 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs">
+          <span
+            class="absolute -top-2 -right-2 bg-blue-600 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs"
+          >
             {{ cartItemCount }}
           </span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            />
           </svg>
         </button>
       </div>
@@ -96,8 +123,5 @@
     </div>
 
     <!-- Cart Modal -->
-
-    
-
   </nav>
 </header>
