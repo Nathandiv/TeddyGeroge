@@ -63,15 +63,38 @@ export class CartComponent implements OnInit {
     this.isOpen = true;
   }
 
-  async checkout(): Promise<void> {
-    const stripe = await loadStripe('your_publishable_key');
-    
-    if (!stripe) {
-      console.error('Stripe failed to load');
-      return;
+  checkout(): void {
+    const totalAmount = this.calculateTotal().toFixed(2); // ZAR price
+  
+    // PayFast Test Credentials
+    const merchantId = '10000100';
+    const merchantKey = '46f0cd694581a';
+  
+    // Create a form
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://sandbox.payfast.co.za/eng/process'; // change to www.payfast.co.za on production
+  
+    const formFields: { [key: string]: string } = {
+      merchant_id: merchantId,
+      merchant_key: merchantKey,
+      amount: totalAmount,
+      item_name: 'Cart Checkout',
+      return_url: 'https://yourdomain.com/success',
+      cancel_url: 'https://yourdomain.com/cancel',
+      notify_url: 'https://yourdomain.com/ipn', // optional if no backend
+      email_address: 'test@example.com' // optional, but helps on test
+    };
+  
+    for (const key in formFields) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = formFields[key];
+      form.appendChild(input);
     }
-
-    // Here you would typically make an API call to your backend to create a checkout session
-    alert('Checkout functionality would be implemented here with Stripe');
+  
+    document.body.appendChild(form);
+    form.submit();
   }
 }
