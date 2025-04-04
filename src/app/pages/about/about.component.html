@@ -1,4 +1,6 @@
-<div class="container mx-auto px-4 py-12 animate-fade-in">
+<app-navbar (openCartEvent)="openCart()"></app-navbar>
+
+<div class="container mx-auto px-4 py-12 animate-fade-in mt-10">
     <h1 class="page-title text-center">About LuxeFurnish</h1>
     
     <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -49,7 +51,7 @@
           <p class="text-gray-600">Environmental responsibility is at the heart of everything we do.</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
-          <img src="https://images.unsplash.com/photo-1505343014422-4b54c75e1d82?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+          <img src="https://i.pinimg.com/474x/e3/20/fd/e320fd3c658603463117022dac7c2d64.jpg" 
                alt="Innovative Design" 
                class="w-full h-48 object-cover rounded-lg mb-4">
           <div class="flex items-center mb-3">
@@ -92,7 +94,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md">
           <h3 class="text-xl font-semibold text-primary mb-4">Terms & Conditions</h3>
           <ul class="list-disc list-inside space-y-2 text-gray-600">
-            <li>All prices are in USD unless otherwise stated</li>
+            <li>All prices are in RSA unless otherwise stated</li>
             <li>Shipping times may vary by location</li>
             <li>We reserve the right to modify prices</li>
             <li>Warranty valid only with proof of purchase</li>
@@ -102,3 +104,5 @@
       </div>
     </div>
   </div>
+
+  <app-footer></app-footer>

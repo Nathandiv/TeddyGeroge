@@ -1,0 +1,37 @@
+:host {
+    display: block;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  input.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    @apply border-red-500;
+  }
+  
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+
+  .page-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700;   /* font-bold */
+    color: #1d4ed8;     /* text-primary (adjust this color if your theme uses a custom one) */
+    margin-bottom: 2rem; /* mb-8 */
+  }
+  
+  .section-title {
+    font-size: 1.5rem;   /* text-2xl */
+    font-weight: 600;    /* font-semibold */
+    color: #1d4ed8;      /* text-primary */
+    margin-bottom: 1.5rem; /* mb-6 */
+  }
+  
+  :host {
+    background-color: #f9fafb; /* bg-gray-50 */
+    display: block;
+  }
