@@ -3,6 +3,7 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
 
@@ -14,8 +15,6 @@ export const routes: Routes = [
     path: 'shop',
     component: ShopComponent
   },
-
-
   {
     path: 'product/:id',
     component: ProductDetailsComponent
@@ -23,5 +22,13 @@ export const routes: Routes = [
   {
     path: 'wishlist',
     component: WishlistComponent
-  }
+  },
+
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+
+
+
 ];
