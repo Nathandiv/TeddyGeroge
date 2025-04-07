@@ -7,7 +7,7 @@ import { CartComponent } from '../../components/cart/cart.component';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, ReactiveFormsModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, ReactiveFormsModule, NavbarComponent, FooterComponent, CartComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
