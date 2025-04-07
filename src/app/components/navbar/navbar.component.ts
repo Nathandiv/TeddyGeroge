@@ -13,6 +13,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarComponent {
   @Output() openCartEvent = new EventEmitter<void>();
   cartItemCount = 0;
+  router: any;
 
   constructor(private cartService: CartService) {
     this.cartService.getCartItems().subscribe(items => {
@@ -28,5 +29,9 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  openWishlist(): void {
+    this.router.navigate(['/wishlist']);
   }
 }
