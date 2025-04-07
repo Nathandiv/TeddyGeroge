@@ -1,114 +1,166 @@
-
-<div class="min-h-screen ">
+<div class="min-h-screen">
   <app-navbar (openCartEvent)="openCart()"></app-navbar>
 
   <div class="container mx-auto px-4 py-12 animate-fade-in mt-10">
-      <h1 class="page-title text-center">About Teddy George</h1>
-      
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <div class="animate-slide-up">
-          <h2 class="section-title">Our Story</h2>
-          <p class="text-gray-600 mb-4 text-2xl">
-            Founded in 2020, Teddy George has been at the forefront of contemporary furniture design. 
-            We believe in creating spaces that inspire and comfort, combining functionality with aesthetic excellence.
+    <h1 class="page-title text-center">About Teddy George</h1>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div data-aos="fade-right" class="animate-slide-up">
+        <h2 class="section-title">Our Story</h2>
+        <p class="text-gray-600 mb-4 text-2xl">
+          Founded in 2020, Teddy George has been at the forefront of
+          contemporary furniture design. We believe in creating spaces that
+          inspire and comfort, combining functionality with aesthetic
+          excellence.
+        </p>
+        <p class="text-gray-600 text-2xl">
+          Our commitment to sustainable practices and exceptional craftsmanship
+          sets us apart in the furniture industry.
+        </p>
+      </div>
+      <div data-aos="fade-left" class="rounded-lg overflow-hidden shadow-xl animate-slide-up mt-16">
+        <img
+          src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          alt="Modern furniture showroom"
+          class="w-full h-[400px] object-cover"
+        />
+      </div>
+    </div>
+
+    <div data-aos="fade-up"
+    data-aos-duration="2000" class="mb-16">
+      <h2 class="section-title text-center">Our Values</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            alt="Quality Furniture"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <div class="flex items-center mb-3">
+            <svg
+              class="w-8 h-8 text-secondary mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              />
+            </svg>
+            <h3 class="text-xl font-semibold text-primary">Quality</h3>
+          </div>
+          <p class="text-gray-600">
+            We never compromise on the quality of our materials and
+            craftsmanship.
           </p>
-          <p class="text-gray-600 text-2xl">
-            Our commitment to sustainable practices and exceptional craftsmanship sets us apart in the furniture industry.
+        </div>
+        <div
+          class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            alt="Sustainable Practices"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <div class="flex items-center mb-3">
+            <svg
+              class="w-8 h-8 text-secondary mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+              />
+            </svg>
+            <h3 class="text-xl font-semibold text-primary">Sustainability</h3>
+          </div>
+          <p class="text-gray-600">
+            Environmental responsibility is at the heart of everything we do.
           </p>
         </div>
-        <div class="rounded-lg overflow-hidden shadow-xl animate-slide-up mt-16">
-          <img 
-            src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-            alt="Modern furniture showroom" 
-            class="w-full h-[400px] object-cover"
-          >
+        <div
+          class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300"
+        >
+          <img
+            src="https://i.pinimg.com/474x/e3/20/fd/e320fd3c658603463117022dac7c2d64.jpg"
+            alt="Innovative Design"
+            class="w-full h-48 object-cover rounded-lg mb-4"
+          />
+          <div class="flex items-center mb-3">
+            <svg
+              class="w-8 h-8 text-secondary mr-2"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"
+              />
+            </svg>
+            <h3 class="text-xl font-semibold text-primary">Innovation</h3>
+          </div>
+          <p class="text-gray-600">
+            We constantly push boundaries in furniture design and technology.
+          </p>
         </div>
       </div>
-    
-      <div class="mb-16">
-        <h2 class="section-title text-center">Our Values</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
-            <img src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                 alt="Quality Furniture" 
-                 class="w-full h-48 object-cover rounded-lg mb-4">
-            <div class="flex items-center mb-3">
-              <svg class="w-8 h-8 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-              </svg>
-              <h3 class="text-xl font-semibold text-primary">Quality</h3>
-            </div>
-            <p class="text-gray-600">We never compromise on the quality of our materials and craftsmanship.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
-            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                 alt="Sustainable Practices" 
-                 class="w-full h-48 object-cover rounded-lg mb-4">
-            <div class="flex items-center mb-3">
-              <svg class="w-8 h-8 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"/>
-              </svg>
-              <h3 class="text-xl font-semibold text-primary">Sustainability</h3>
-            </div>
-            <p class="text-gray-600">Environmental responsibility is at the heart of everything we do.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
-            <img src="https://i.pinimg.com/474x/e3/20/fd/e320fd3c658603463117022dac7c2d64.jpg" 
-                 alt="Innovative Design" 
-                 class="w-full h-48 object-cover rounded-lg mb-4">
-            <div class="flex items-center mb-3">
-              <svg class="w-8 h-8 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"/>
-              </svg>
-              <h3 class="text-xl font-semibold text-primary">Innovation</h3>
-            </div>
-            <p class="text-gray-600">We constantly push boundaries in furniture design and technology.</p>
-          </div>
-        </div>
-      </div>
-    
-      <div class="mb-16">
-        <h2 class="section-title text-center">Our Team</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div *ngFor="let member of team" class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4 animate-slide-up">
-            <img [src]="member.image" [alt]="member.name" class="w-20 h-20 rounded-full">
-            <div>
-              <h3 class="text-xl font-semibold text-primary">{{member.name}}</h3>
-              <p class="text-gray-600">{{member.position}}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="mb-16">
-        <h2 class="section-title text-center">Our Policies</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold text-primary mb-4">Returns & Refunds</h3>
-            <ul class="list-disc list-inside space-y-2 text-gray-600">
-              <li>30-day return policy on all unused items</li>
-              <li>Free returns on defective products</li>
-              <li>Store credit or full refund options available</li>
-              <li>Custom orders are non-returnable</li>
-              <li>Original packaging required for returns</li>
-            </ul>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold text-primary mb-4">Terms & Conditions</h3>
-            <ul class="list-disc list-inside space-y-2 text-gray-600">
-              <li>All prices are in RSA unless otherwise stated</li>
-              <li>Shipping times may vary by location</li>
-              <li>We reserve the right to modify prices</li>
-              <li>Warranty valid only with proof of purchase</li>
-              <li>Terms subject to change without notice</li>
-            </ul>
+    </div>
+
+    <div class="mb-16">
+      <h2 class="section-title text-center">Our Team</h2>
+      <div data-aos="flip-up" class="grid md:grid-cols-2 gap-8">
+        <div
+          *ngFor="let member of team"
+          class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-4 animate-slide-up"
+        >
+          <img
+            [src]="member.image"
+            [alt]="member.name"
+            class="w-20 h-20 rounded-full"
+          />
+          <div>
+            <h3 class="text-xl font-semibold text-primary">
+              {{ member.name }}
+            </h3>
+            <p class="text-gray-600">{{ member.position }}</p>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="mb-16">
+      <h2 class="section-title text-center">Our Policies</h2>
+      <div data-aos="zoom-in" class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-primary mb-4">
+            Returns & Refunds
+          </h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>30-day return policy on all unused items</li>
+            <li>Free returns on defective products</li>
+            <li>Store credit or full refund options available</li>
+            <li>Custom orders are non-returnable</li>
+            <li>Original packaging required for returns</li>
+          </ul>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-primary mb-4">
+            Terms & Conditions
+          </h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-600">
+            <li>All prices are in RSA unless otherwise stated</li>
+            <li>Shipping times may vary by location</li>
+            <li>We reserve the right to modify prices</li>
+            <li>Warranty valid only with proof of purchase</li>
+            <li>Terms subject to change without notice</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-cart></app-cart>
 </div>
 
-
-  <app-footer></app-footer>
+<app-footer></app-footer>
