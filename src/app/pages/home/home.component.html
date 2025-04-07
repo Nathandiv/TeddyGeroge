@@ -144,7 +144,13 @@
   </p>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <div class="product-card" (click)="viewDetails()" *ngFor="let product of filteredProducts">
+    <app-product-card
+    *ngFor="let product of filteredProducts "
+    [product]="product"
+    class="transform transition-all duration-300 hover:scale-[1.02]"
+  ></app-product-card>
+
+    <!-- <div class="product-card" (click)="viewDetails()" *ngFor="let product of filteredProducts">
       <img
         [src]="product.imageUrl"
         [alt]="product.name"
@@ -196,10 +202,17 @@
         </div>
 
         <div *ngIf="product.onSale" class="sale-badge">On Sale</div>
+
+        
       </div>
-    </div>
+
+
+    </div> -->
   </div>
   <div class="flex justify-center items-center mt-4">
+    <a>
+      
+    </a>
     <button class="bg-black text-white hover:bg-blue-400 font-bold py-2 px-4 mt-3 rounded">
         View More
     </button>
@@ -207,3 +220,8 @@
 </section>
 
 <app-footer></app-footer>
+
+
+<!-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+</div> -->
