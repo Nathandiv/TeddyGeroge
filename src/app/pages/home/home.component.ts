@@ -20,7 +20,7 @@ interface CarouselSlide {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, ProductCardComponent, CartComponent,RouterLink],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ProductCardComponent, RouterLink, CartComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
