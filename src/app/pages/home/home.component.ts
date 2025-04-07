@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { CartService } from '../../services/cart.service';
@@ -6,6 +6,8 @@ import { ProductService } from '../../services/product.service';
 import { CartComponent } from '../../components/cart/cart.component';
 import { Product } from '../../models/product.model';
 import { FooterComponent } from "../../shared-ui/footer/footer.component";
+import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { Router, RouterLink } from '@angular/router';
 
 interface CarouselSlide {
   title: string;
@@ -18,13 +20,14 @@ interface CarouselSlide {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ProductCardComponent, CartComponent,RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   
   @ViewChild(CartComponent) cartComponent!: CartComponent;
+  @Input() product!: Product;
 
   products: Product[] = []; // ✅ Declared only once
   filteredProducts: Product[] = [];
@@ -34,7 +37,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   carouselSlides: CarouselSlide[] = [
@@ -82,6 +86,10 @@ export class HomeComponent implements OnInit {
 
   getRatingStars(rating: number): number[] {
     return Array(Math.floor(rating)).fill(0);
+  }
+
+  viewDetails(): void {
+    this.router.navigate(['/product', this.product.id]);
   }
 
   getPartialStar(rating: number): number {
