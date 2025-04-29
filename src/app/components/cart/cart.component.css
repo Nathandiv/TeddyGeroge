@@ -71,5 +71,5 @@
 }
 
 .checkout-button {
-  @apply w-full bg-black text-white py-2 rounded hover:bg-green-500 transition-colors;
+  @apply w-full bg-black text-white py-2 rounded hover:bg-[#dfd5c9] transition-colors;
 }

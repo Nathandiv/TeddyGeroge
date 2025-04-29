@@ -53,7 +53,7 @@
 }
 
 .add-to-cart {
-  @apply bg-black text-white px-4 py-2 rounded-lg hover:bg-green-300 transition-colors transform hover:scale-105 active:scale-95;
+  @apply bg-black text-white px-4 py-2 rounded-lg hover:bg-[#dfd5c9] transition-colors transform hover:scale-105 active:scale-95;
 }
 
 @media (max-width: 640px) {
@@ -69,3 +69,5 @@
     @apply text-lg;
   }
 }
+
+/* [#dfd5c9] */
