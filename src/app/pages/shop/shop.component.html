@@ -2,7 +2,85 @@
   <app-navbar (openCartEvent)="openCart()"></app-navbar>
   
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-    <section class="mb-12">
+
+    <div class="p-4">
+      <h2 class="text-2xl font-bold mb-2">Tabs</h2>
+      <p class="mb-4">
+        Tabs are perfect for single page web applications, or for web pages capable of displaying different subjects. Click on the links below.
+      </p>
+    
+      <div class="flex space-x-4 border-b border-gray-300 mb-4">
+        <button
+          *ngFor="let tab of tabs"
+          class="py-2 px-4 text-sm font-medium focus:outline-none"
+          [ngClass]="{
+            'border-b-2 border-blue-500 text-blue-600': activeTab === tab,
+            'text-gray-500 hover:text-blue-500': activeTab !== tab
+          }"
+          (click)="selectTab(tab)"
+        >
+          {{ tab }}
+        </button>
+      </div>
+    
+      <div *ngIf="activeTab === 'All'" class="space-y-2">
+        <section class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Collection</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <app-product-card
+              *ngFor="let product of paginatedProducts"
+              [product]="product"
+              class="transform transition-all duration-300 hover:scale-[1.02]"
+            ></app-product-card>
+          </div>
+        </section>
+      
+        <!-- Pagination Controls -->
+        <nav class="flex justify-center mt-6 mb-6">
+          <ul class="inline-flex items-center -space-x-px">
+            <li>
+              <button
+                (click)="setPage(currentPage - 1)"
+                [disabled]="currentPage === 1"
+                class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700"
+              >
+                Previous
+              </button>
+            </li>
+            <li *ngFor="let page of [].constructor(totalPages()); let i = index">
+              <button
+                (click)="setPage(i + 1)"
+                [class.bg-blue-500]="currentPage === i + 1"
+                [class.text-white]="currentPage === i + 1"
+                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
+              >
+                {{ i + 1 }}
+              </button>
+            </li>
+            <li>
+              <button
+                (click)="setPage(currentPage + 1)"
+                [disabled]="currentPage === totalPages()"
+                class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700"
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    
+      <div *ngIf="activeTab === 'Lounge'" class="space-y-2">
+        <h3 class="text-xl font-semibold">Lounge</h3>
+        <p>The lounge is where people relax and socialize.</p>
+      </div>
+    
+      <div *ngIf="activeTab === 'Bedroom'" class="space-y-2">
+        <h3 class="text-xl font-semibold">Bedroom</h3>
+        <p>The bedroom is a place to rest and sleep.</p>
+      </div>
+    </div>
+    <!-- <section class="mb-12">
       <h2 class="text-3xl font-bold text-gray-900 mb-8">Featured Collection</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <app-product-card
@@ -11,11 +89,10 @@
           class="transform transition-all duration-300 hover:scale-[1.02]"
         ></app-product-card>
       </div>
-    </section>
+    </section> -->
   
 
-    <!-- Pagination Controls -->
-    <nav class="flex justify-center mt-6 mb-6">
+    <!-- <nav class="flex justify-center mt-6 mb-6">
       <ul class="inline-flex items-center -space-x-px">
         <li>
           <button
@@ -46,7 +123,7 @@
           </button>
         </li>
       </ul>
-    </nav>
+    </nav> -->
   </main>
   
 

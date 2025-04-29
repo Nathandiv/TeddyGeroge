@@ -21,6 +21,13 @@ export class ShopComponent {
   currentPage = 1;
   itemsPerPage = 9;
 
+  tabs = ['All', 'Lounge', 'Bedroom'];
+  activeTab = this.tabs[0];
+
+  selectTab(tab: string) {
+    this.activeTab = tab;
+  }
+
   constructor(
     private productService: ProductService,
     private cartService: CartService
