@@ -20,6 +20,7 @@ export class ShopComponent  implements OnInit {
   @ViewChild(CartComponent) cartComponent!: CartComponent;
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  filteredProductss: Product[] = [];
   currentPage = 1;
   itemsPerPage = 9;
 
@@ -50,6 +51,11 @@ export class ShopComponent  implements OnInit {
     return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
+  get paginatedFilteredProductss(): Product[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
   totalPages(): number {
     return Math.ceil(this.products.length / this.itemsPerPage);
   }
@@ -57,6 +63,11 @@ export class ShopComponent  implements OnInit {
   getFilteredProducts(): void {
     this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 8);
   }
+
+  getFilteredProductss(): void {
+    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 8);
+  }
+
 
   setPage(page: number): void {
     if (page >= 1 && page <= this.totalPages()) {
