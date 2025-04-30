@@ -76,6 +76,7 @@
       </div>
     
       <div *ngIf="activeTab === 'Lounge'" class="space-y-2">
+
         <section class="mb-12">
          
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -120,20 +121,22 @@
             </li>
           </ul>
         </nav>
+
       </div>
     
       <div *ngIf="activeTab === 'Bedroom'" class="space-y-2">
-        <!-- <section class="mb-12">
+         <section class="mb-12">
          
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <app-product-card
-              *ngFor="let product of paginatedProducts"
+              *ngFor="let product of paginatedFilteredProductss"
               [product]="product"
               class="transform transition-all duration-300 hover:scale-[1.02]"
             ></app-product-card>
           </div>
         </section>
       
+        <!-- Pagination Controls -->
         <nav class="flex justify-center mt-6 mb-6">
           <ul class="inline-flex items-center -space-x-px">
             <li>
@@ -165,8 +168,7 @@
               </button>
             </li>
           </ul>
-        </nav> -->
-
+        </nav>
       </div>
     </div>
     <!-- <section class="mb-12">
