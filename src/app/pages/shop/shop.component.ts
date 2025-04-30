@@ -45,6 +45,11 @@ export class ShopComponent  implements OnInit {
     return this.products.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
+  get paginatedFilteredProducts(): Product[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
   totalPages(): number {
     return Math.ceil(this.products.length / this.itemsPerPage);
   }
