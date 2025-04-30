@@ -54,7 +54,7 @@ export class ShopComponent  implements OnInit {
 
   get paginatedFilteredProductss(): Product[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    return this.filteredProducts.slice(startIndex, startIndex + this.itemsPerPage);
+    return this.filteredProductss.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
   totalPages(): number {
@@ -62,11 +62,11 @@ export class ShopComponent  implements OnInit {
   }
 
   getFilteredProducts(): void {
-    this.filteredProducts = this.products.filter(product => product.id >= 1 && product.id <= 10);
+    this.filteredProducts = this.products.filter(product => product.id >= 2 && product.id <= 8);
   }
 
   getFilteredProductss(): void {
-    this.filteredProductss = this.products.filter(product => product.id >= 11 && product.id <= 20);
+    this.filteredProductss = this.products.filter(product => product.id >= 3 && product.id <= 11);
   }
 
 
