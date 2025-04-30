@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { CartComponent } from '../../components/cart/cart.component';
@@ -7,6 +7,7 @@ import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 import { FooterComponent } from "../../shared-ui/footer/footer.component";
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-shop',
@@ -15,9 +16,10 @@ import { FooterComponent } from "../../shared-ui/footer/footer.component";
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent {
+export class ShopComponent  implements OnInit {
   @ViewChild(CartComponent) cartComponent!: CartComponent;
-  products = this.productService.getProducts();
+  products: Product[] = [];
+  filteredProducts: Product[] = [];
   currentPage = 1;
   itemsPerPage = 9;
 
@@ -26,6 +28,11 @@ export class ShopComponent {
 
   selectTab(tab: string) {
     this.activeTab = tab;
+  }
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+    this.getFilteredProducts();;
   }
 
   constructor(
@@ -40,6 +47,10 @@ export class ShopComponent {
 
   totalPages(): number {
     return Math.ceil(this.products.length / this.itemsPerPage);
+  }
+
+  getFilteredProducts(): void {
+    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 8);
   }
 
   setPage(page: number): void {
