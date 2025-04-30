@@ -62,11 +62,11 @@ export class ShopComponent  implements OnInit {
   }
 
   getFilteredProducts(): void {
-    this.filteredProducts = this.products.filter(product => product.id >= 3 && product.id <= 8);
+    this.filteredProducts = this.products.filter(product => product.id >= 1 && product.id <= 10);
   }
 
   getFilteredProductss(): void {
-    this.filteredProductss = this.products.filter(product => product.id >= 2 && product.id <= 11);
+    this.filteredProductss = this.products.filter(product => product.id >= 11 && product.id <= 20);
   }
 
 
