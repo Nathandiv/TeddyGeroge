@@ -4,32 +4,41 @@
       <h2 class="cart-title">Shopping Cart</h2>
       <button (click)="close()" class="close-button">&times;</button>
     </div>
-    
+
     <div *ngIf="cartItems.length === 0" class="empty-cart">
       Your cart is empty
     </div>
 
     <div *ngIf="cartItems.length > 0">
       <div *ngFor="let item of cartItems" class="cart-item">
-        <img [src]="getProduct(item.productId)?.imageUrl" 
-             [alt]="getProduct(item.productId)?.name"
-             class="item-image">
+        <img
+          [src]="getProduct(item.productId)?.imageUrl"
+          [alt]="getProduct(item.productId)?.name"
+          class="item-image"
+        />
         <div class="item-details">
           <h3 class="item-name">{{ getProduct(item.productId)?.name }}</h3>
           <div class="quantity-controls">
-            <button (click)="updateQuantity(item.productId, item.quantity - 1)"
-                    class="quantity-button">-</button>
+            <button
+              (click)="updateQuantity(item.productId, item.quantity - 1)"
+              class="quantity-button"
+            >
+              -
+            </button>
             <span>{{ item.quantity }}</span>
-            <button (click)="updateQuantity(item.productId, item.quantity + 1)"
-                    class="quantity-button">+</button>
+            <button
+              (click)="updateQuantity(item.productId, item.quantity + 1)"
+              class="quantity-button"
+            >
+              +
+            </button>
           </div>
         </div>
         <div class="item-price">
-          <div class="price-amount">
-            R{{ calculateItemTotal(item) }}
-          </div>
-          <button (click)="removeItem(item.productId)" 
-                  class="remove-button">Remove</button>
+          <div class="price-amount">R{{ calculateItemTotal(item) }}</div>
+          <button (click)="removeItem(item.productId)" class="remove-button">
+            Remove
+          </button>
         </div>
       </div>
 
@@ -38,10 +47,33 @@
           <span>Total:</span>
           <span>R{{ calculateTotal() }}</span>
         </div>
-        <button (click)="checkout()" class="checkout-button">
+        <button (click)="openDeliveryModal()" class="checkout-button">
           Proceed to Checkout
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Delivery Modal -->
+<app-delivery-modal
+  *ngIf="showDeliveryModal"
+  (submitDelivery)="handleDeliverySubmit($event)"
+  (closeModal)="closeDeliveryModal()"
+></app-delivery-modal>
+
+<!-- Confirmation Message -->
+<div *ngIf="showConfirmation" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-xl font-bold mb-4">Order Confirmation</h2>
+    <p class="mb-4">Thank you for your order! Your details:</p>
+    <div class="mb-4">
+      <p><strong>Name:</strong> {{ deliveryInfo?.name }}</p>
+      <p><strong>Email:</strong> {{ deliveryInfo?.email }}</p>
+      <p><strong>Phone:</strong> {{ deliveryInfo?.phone }}</p>
+      <p><strong>Address:</strong> {{ deliveryInfo?.address }}, {{ deliveryInfo?.city }}, {{ deliveryInfo?.postalCode }}</p>
+      <p><strong>Total:</strong> R{{ calculateTotal() }}</p>
+    </div>
+    <p class="text-sm text-gray-500">Redirecting to payment in a moment...</p>
   </div>
 </div>
