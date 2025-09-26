@@ -1,0 +1,39 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold">Delivery Information</h2>
+      <button (click)="onClose()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" [(ngModel)]="deliveryInfo.name" name="name" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" [(ngModel)]="deliveryInfo.email" name="email" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Phone</label>
+        <input type="tel" [(ngModel)]="deliveryInfo.phone" name="phone" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Address</label>
+        <input type="text" [(ngModel)]="deliveryInfo.address" name="address" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">City</label>
+        <input type="text" [(ngModel)]="deliveryInfo.city" name="city" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Postal Code</label>
+        <input type="text" [(ngModel)]="deliveryInfo.postalCode" name="postalCode" class="mt-1 p-2 w-full border rounded" required>
+      </div>
+      <div class="flex justify-end gap-2">
+        <button type="button" (click)="onClose()" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Cancel</button>
+        <button type="submit" class="px-4 py-2 bg-black text-white rounded hover:bg-[#dfd5c9] transition-colors">Proceed to Payment</button>
+      </div>
+    </form>
+  </div>
+</div>
